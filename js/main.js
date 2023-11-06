@@ -1,7 +1,22 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import '/css/style.css'
+import javascriptLogo from '/images/javascript.svg'
+import viteLogo from '/images/public/vite.svg'
+import { setupCounter } from '/js/counter.js'
+
+import dayjs from 'dayjs'
+import { gsap } from "gsap"
+
+let now = dayjs();
+console.log(now.format("MMM D, YYYY"));
+
+const date1 = dayjs("2023-09-5");
+const date2 = dayjs("2023-10-30");
+let df4 = date2.diff(date1, "day"); 
+console.log(df4);
+
+document.addEventListener('DOMContentLoaded', () => {
+  gsap.to("#counter", { rotation: 720, x: 100, duration: 1 });
+  });
 
 document.querySelector('#app').innerHTML = `
   <div>
@@ -11,14 +26,14 @@ document.querySelector('#app').innerHTML = `
     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
       <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
     </a>
-    <h1>Hello Vite!</h1>
+    <h1 class>Hello Vite!</h1>
     <div class="card">
       <button id="counter" type="button"></button>
     </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
+    <h2>Today's date: ${now.format("MMM D, YYYY")}</h2>
+    <h2>The number of days since this program started on Sept 5, 2023: ${df4} days</h2>
   </div>
 `
 
 setupCounter(document.querySelector('#counter'))
+
