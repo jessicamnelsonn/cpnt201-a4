@@ -4,6 +4,7 @@ import viteLogo from '/images/public/vite.svg'
 import { setupCounter } from '/js/counter.js'
 
 import dayjs from 'dayjs'
+import { gsap } from "gsap"
 
 let now = dayjs();
 console.log(now.format("MMM D, YYYY"));
@@ -12,6 +13,10 @@ const date1 = dayjs("2023-09-5");
 const date2 = dayjs("2023-10-30");
 let df4 = date2.diff(date1, "day"); 
 console.log(df4);
+
+document.addEventListener('DOMContentLoaded', () => {
+  gsap.to("#counter", { rotation: 720, x: 100, duration: 1 });
+  });
 
 document.querySelector('#app').innerHTML = `
   <div>
