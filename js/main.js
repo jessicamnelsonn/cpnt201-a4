@@ -10,7 +10,7 @@ let now = dayjs();
 console.log(now.format("MMM D, YYYY"));
 
 const date1 = dayjs("2023-09-5");
-const date2 = dayjs("2023-10-30");
+const date2 = dayjs();
 let df4 = date2.diff(date1, "day"); 
 console.log(df4);
 
